@@ -1,0 +1,74 @@
+-- create database blog;
+-- CREATE TABLE posts;
+SELECT DATABASE blog;   
+USE blog;
+
+-- CREATE TABLE posts (
+   Id   INT,	-- have to be auto increment
+   Title TEXT,
+   Body  TEXT,
+   Author TEXT,
+   Created_at   TEXT,       
+   PRIMARY KEY (ID)
+);
+-- DROP TABLE posts;
+
+CREATE TABLE `posts` (
+ 
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+       -- have to be auto increment
+ `title` longtext NOT NULL,
+ 
+ `body` longtext NOT NULL,
+ 
+ `author` longtext NOT NULL,
+ 
+ `created_at` int(11) NOT NULL,
+ 
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1
+
+DESC posts;
+INSERT INTO posts (Id,Title,Body,Author,Created_at)
+VALUES (1, 'Naslov', 'Ovo je sadrzaj posta sa id-jem 1 i naslovom naslov autor, objavljeno.', 'Autor', '21.1.2055' );
+INSERT INTO posts (Id,Title,Body,Author,Created_at)
+VALUES (2, 'Naslov2', 'Ovo je sadrzaj posta sa id-jem 2 i naslovom naslov autor, objavljeno.', 'Autor2', '22.2.2055' );
+INSERT INTO posts (Id,Title,Body,Author,Created_at)
+VALUES (3, 'Naslov3', 'Ovo je sadrzaj posta sa id-jem 3 i naslovom naslov autor, objavljeno.', 'Autor3', '23.3.2055' );
+INSERT INTO posts (Id,Title,Body,Author,Created_at)
+VALUES (4, 'Naslov4', 'Ovo je sadrzaj posta sa id-jem 4 i naslovom naslov autor, objavljeno.', 'Autor4', '24.4.2055' );
+INSERT INTO posts (Id,Title,Body,Author,Created_at)
+VALUES (5, 'Naslov5', 'Ovo je sadrzaj posta sa id-jem 5 i naslovom naslov autor, objavljeno.', 'Autor5', '25.5.2055' );
+DESC posts;
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+     -- have to be auto increment
+ `author` longtext NOT NULL,
+ 
+ `text` longtext NOT NULL,
+ 
+ `post_id` int(11) NOT NULL,
+ 
+ PRIMARY KEY (`id`)
+)
+ ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1
+
+DESC comments;
+INSERT INTO comments (Id,Author,Text,Post_id)
+VALUES (1, 'Author', 'Ovo je sadrzaj komentara sa Post_id-jem 1 i autorom Author, objavljeno.', 1);
+INSERT INTO comments (Id,Author,Text,Post_id)
+VALUES (2, 'Author2', 'Ovo je sadrzaj komentara sa Post_id-jem 1 i autorom Author2, objavljeno.', 1);
+INSERT INTO comments (Id,Author,Text,Post_id)
+VALUES (3, 'Author3', 'Ovo je sadrzaj komentara sa Post_id-jem 1 i autorom Author3, objavljeno.', 1);
+INSERT INTO comments (Id,Author,Text,Post_id)
+VALUES (4, 'Author4', 'Ovo je sadrzaj komentara sa Post_id-jem 2 i autorom Author4, objavljeno.', 2);
+INSERT INTO comments (Id,Author,Text,Post_id)
+VALUES (5, 'Author5', 'Ovo je sadrzaj komentara sa Post_id-jem 5 i autorom Author5, objavljeno.', 5);
+
+SELECT * FROM comments;
+
+DESC comments;
+
+ALTER TABLE comments
+ADD FOREIGN KEY (Post_id) REFERENCES posts(Id); 

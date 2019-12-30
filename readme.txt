@@ -1,0 +1,1 @@
+Databese setup for sqlectron is in database text.
